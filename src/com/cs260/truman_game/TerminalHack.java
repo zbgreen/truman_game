@@ -24,12 +24,19 @@ public class TerminalHack
 	private boolean hacked;
 	Scanner in;
 	
+	/**
+	 * Initializes hacked to false
+	 * @param in  current scanner obj
+	 */
 	public TerminalHack(Scanner in)
 	{
 		hacked = false;
 		this.in = in;
 	}
 
+	/**
+	 * Prints starting message and begins the hacking
+	 */
 	public void screen() 
 	{
 		System.out.println("You walk into the room and notice a computer is on.\n"
@@ -44,6 +51,9 @@ public class TerminalHack
 		getPasswords();
 	}
 
+	/**
+	 * Prints out all of the passwords
+	 */
 	private void printPasswords() 
 	{
 		for (int i = 0; i < passwords.length; i++)
@@ -52,6 +62,9 @@ public class TerminalHack
 		}
 	}
 		
+	/**
+	 * Player tries to guess the password. Correct guess grants access
+	 */
 	private void getPasswords() 
 	{
 		//Scanner in = new Scanner(System.in);
@@ -78,6 +91,10 @@ public class TerminalHack
 		}
 	}
 
+	/**
+	 * Grants access if hacked.
+	 * @return  senior portfolio status
+	 */
 	public boolean access() 
 	{
 		if(hacked == true)

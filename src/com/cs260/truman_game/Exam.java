@@ -2,7 +2,7 @@ package com.cs260.truman_game;
 
 import java.util.Scanner;
 /**
- * 
+ * Gives the final exam to the player
  * @author Zach Green
  * @version 11/26/14
  *
@@ -74,11 +74,18 @@ public class Exam
 			"b"}
 		};
 	
+	/**
+	 * Initializes corrent = 0
+	 */
 	public Exam()
 	{
 		correct = 0;
 	}
 
+	/**
+	 * Starts the exam. Every right answer inc correct
+	 * @return pass or fail
+	 */
 	public boolean start() 
 	{
 		System.out.println("You've made it thus far through Truman and have one last task.\n"

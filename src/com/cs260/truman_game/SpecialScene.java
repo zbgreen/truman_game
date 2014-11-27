@@ -64,6 +64,11 @@ public class SpecialScene {
 		System.out.println("Your current HP is " + player.getHP());
 	}
 	
+	/**
+	 * Weather condition that takes items away
+	 * @param weather  current condition
+	 * @param player  current player
+	 */
 	public void attackByRainyDay(String weather,Player player){
 		int numberOfItemToLost=(int) (Math.random()*player.getInventory().size() - 1);
 		if(weather.equals("rainy")){
@@ -75,12 +80,23 @@ public class SpecialScene {
 		}
 	}
 	
+	/**
+	 * Room condition that removes health
+	 * @param player  current player
+	 * @param damage  -10 damage
+	 */
 	public void roomRadiation(Player player, int damage) {
 		System.out.println("This room has excessive radiation and you begin to feel ill.");
 		player.setHP(damage);
 		System.out.println("Your current HP is " + player.getHP());
 	}
 	
+	/**
+	 * Weather condition that removes health
+	 * @param weather  current weather
+	 * @param player  current player
+	 * @param damage  -10 damage
+	 */
 	public void outdoorRadiation(String weather, Player player, int damage)
 	{
 		if(weather.equals("radioactive"))

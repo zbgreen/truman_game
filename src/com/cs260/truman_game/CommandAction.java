@@ -23,7 +23,7 @@ public class CommandAction {
 			Command.printActionCommand();
 			System.out
 					.print("\nWhich action command do you want to perform (word): ");
-			String inputCommand = GameStart.in.nextLine();
+			String inputCommand = GameStart.in.nextLine().toLowerCase();
 			inputCommand.toLowerCase();
 			// Check which command to perform
 			if (inputCommand.contains("take")) {
@@ -31,7 +31,7 @@ public class CommandAction {
 				room.removeItem(item, player);
 			} else if (inputCommand.equals("help")) {
 				System.out
-						.println("You yieled to the screen...but nothing speicial happen");
+						.println("You yelled at the screen...but nothing happens...");
 			} else if (inputCommand.equals("inventory")) {
 				// Pint out the item in player's inventory
 				player.printInventory();
@@ -65,12 +65,12 @@ public class CommandAction {
 			if (input.contains("consume")) {
 				String item = wordAfterBlank(input);
 				if (player.removeItemSuccess(item) == true) {
-					System.out.println("You consumed [" + item.toLowerCase()
+					System.out.println("You consumed a(n) [" + item.toLowerCase()
 							+ "] from your inventory.");
 					// Restore the random HP after player consumed food
 					int restoredHP = (int) (Math.random() * maxHPRestore) + 1;
 					System.out.println("You restore " + restoredHP
-							+ " after consumed " + item);
+							+ " after consuming " + item);
 					player.setHP(restoredHP);
 					System.out.println("Your current HP is " + player.getHP());
 					player.removeItemInventory(item);

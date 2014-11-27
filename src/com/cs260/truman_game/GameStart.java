@@ -14,6 +14,7 @@ public class GameStart {
 	 * Global scanner that is using to get player's inputs
 	 */
 	public final static Scanner in = new Scanner(System.in);
+	private static boolean capstone = false;
 
 	public static void main(String[] args) {
 		/**
@@ -26,6 +27,7 @@ public class GameStart {
 
 		final int NUMBER_TEN = 10;
 		final int MONSTER_DAMAGE = -20;
+		final int RADIATION_DAMAGE = -10;
 		final int MAX_HP_RESTORE = 20;
 
 		/**
@@ -34,6 +36,7 @@ public class GameStart {
 		ArrayList<Item> inventory = new ArrayList<Item>();
 		final int PLAYER_HP = 100;
 		Player player = new Player(PLAYER_HP, inventory);
+		TerminalHack hack = new TerminalHack(in);
 
 		/**
 		 * Set up for building (rooms of the building);
@@ -63,11 +66,13 @@ public class GameStart {
 			int numberSeven = 7;
 			int numberSix = 6;
 			int numberFour = 4;
+			int numberFive = 5;
 
 			// Print out current weather
 			String currentWeather = Weather.weather[(int) (Math.random() * Weather.weather.length)];
 			System.out.println("\nThe weather outside is " + currentWeather);
 			scene.attackByRainyDay(currentWeather, player);
+			scene.outdoorRadiation(currentWeather, player, RADIATION_DAMAGE);
 
 			// Make choice for the building to enter
 			int choiceCommandBuilding = commandAction.validCommandOutSide();
@@ -83,6 +88,7 @@ public class GameStart {
 						.validCommandInsideBuilding(building);
 
 				int randomNumber = (int) (Math.random() * NUMBER_TEN);
+				System.out.println(randomNumber);
 				if (roomChoiceCommand == EXIT_ROOM) {
 					exitRoom = true;
 					break;
@@ -92,6 +98,11 @@ public class GameStart {
 						scene.studentGiveKnowledge();
 					} else if (randomNumber == numberSix) {
 						scene.monsterAttack(player, MONSTER_DAMAGE);
+						if (player.checkPlayerAlive() == false) {
+							lost = true;
+						}
+					} else if (randomNumber == numberFive) {
+						scene.roomRadiation(player, RADIATION_DAMAGE);
 						if (player.checkPlayerAlive() == false) {
 							lost = true;
 						}
@@ -106,6 +117,12 @@ public class GameStart {
 						if (player.checkPlayerAlive() == false) {
 							lost = true;
 						}
+					} else if(randomNumber < numberFour) {
+						if (capstone == false)
+						{
+							hack.screen();
+							capstone = hack.access();
+						}
 					}
 				} else if (roomChoiceCommand == SECOND_ROOM) {
 					// Special scenes for THIRD_ROOM in the building
@@ -114,6 +131,11 @@ public class GameStart {
 					} else if (randomNumber == numberSix) {
 						scene.facultyMemberGiveQuestion(rooms,
 								roomChoiceCommand, building, in);
+					} else if (randomNumber <= numberFour) {
+						scene.roomRadiation(player, RADIATION_DAMAGE);
+						if (player.checkPlayerAlive() == false) {
+							lost = true;
+						}
 					}
 				}
 				if (lost == false) {
@@ -129,10 +151,9 @@ public class GameStart {
 		}
 		if (lost == true) {
 			System.out.println("You lost");
-		} else {
-			System.out.println("Here is the exam");
-			// Need more here
-			// Need some question sets for the final exam
+		} else if (capstone == true) {
+			Exam exam = new Exam();
+			exam.start();
 		}
 	}
 }

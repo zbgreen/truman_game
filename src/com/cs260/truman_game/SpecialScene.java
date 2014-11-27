@@ -7,15 +7,16 @@ import java.util.Scanner;
 /**
  * SpecialScene class. This class will contains all of the special scenes in the game.
  *
- * @author Yong Zheng
- * @version 11/04/2014
+ * @author Yong Zheng, Zach Green
+ * @version 11/26/2014
  */
 public class SpecialScene {
 	/**
 	 * Special scene for the student to give the knowledge to the player
 	 */
 	public  void studentGiveKnowledge() {
-		System.out.println("Whike you entering the room, there is also another student who is also in this room. You talked to that student for a while, and you gained knowledge from following statement:");
+		System.out.println("While you entering the room, there is also another student who is also in this room.\n"
+				+ " You talked to that student for a while, and you gained knowledge from following statement:");
 		System.out.println("Student: "+ KnowledgeBank.KNOWLEDGE[(int) (Math.random() * KnowledgeBank.KNOWLEDGE.length)]+ "\n");
 	}
 	
@@ -55,22 +56,38 @@ public class SpecialScene {
 	 */
 	public void monsterAttack(Player player, int monsterDamage) {
 		System.out
-				.println("While you entering this room, a monster attack you.");
+				.println("While you entering this room, a monster attacks you.");
 		int damage = (int) (Math.random() * monsterDamage);
 		System.out
-				.println("The monster caused make you lost " + damage + " HP");
+				.println("The monster caused you to lose " + damage + " HP");
 		player.setHP(damage);
 		System.out.println("Your current HP is " + player.getHP());
 	}
 	
 	public void attackByRainyDay(String weather,Player player){
-		int numberOfItemToLost=(int) (Math.random()*player.getInventory().size()+1);
-		if(weather.equals("rainny")){
+		int numberOfItemToLost=(int) (Math.random()*player.getInventory().size() - 1);
+		if(weather.equals("rainy")){
 			for(int i=0;i<numberOfItemToLost;i++){
 				String itemName=player.getInventory().get(i).getItemName();
 				player.removeItemInventory(itemName);
 				System.out.println("You lost ["+itemName+"] due to the heavy rainy outside.");
 			}
+		}
+	}
+	
+	public void roomRadiation(Player player, int damage) {
+		System.out.println("This room has excessive radiation and you begin to feel ill.");
+		player.setHP(damage);
+		System.out.println("Your current HP is " + player.getHP());
+	}
+	
+	public void outdoorRadiation(String weather, Player player, int damage)
+	{
+		if(weather.equals("radioactive"))
+		{
+			System.out.println("You walk outdoors and the nuclear fallout is thick today.");
+			player.setHP(damage);
+			System.out.println("Your current HP is " + player.getHP());
 		}
 	}
 }

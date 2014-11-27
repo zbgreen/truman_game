@@ -5,8 +5,8 @@ import java.util.ArrayList;
 /**
  * Player class. This class will contains the player's HP and inventory.
  *
- * @author Yong Zheng
- * @version 11/04/2014
+ * @author Yong Zheng, Zach Green
+ * @version 11/26/2014
  */
 public class Player {
 	/**
@@ -96,9 +96,9 @@ public class Player {
 					counter++;
 				}
 			}
-			for (int j = 0; j < ItemVariables.IMPORTANT_ITEM_MC.length; j++) {
+			for (int j = 0; j < ItemVariables.IMPORTANT_ITEM_BH.length; j++) {
 				if (inventory.get(i).getItemName()
-						.equals(ItemVariables.IMPORTANT_ITEM_MC[j])) {
+						.equals(ItemVariables.IMPORTANT_ITEM_BH[j])) {
 					counter++;
 				}
 			}
@@ -108,9 +108,9 @@ public class Player {
 					counter++;
 				}
 			}
-			for (int j = 0; j < ItemVariables.IMPORTANT_ITEM_MH.length; j++) {
+			for (int j = 0; j < ItemVariables.IMPORTANT_ITEM_MG.length; j++) {
 				if (inventory.get(i).getItemName()
-						.equals(ItemVariables.IMPORTANT_ITEM_MH[j])) {
+						.equals(ItemVariables.IMPORTANT_ITEM_MG[j])) {
 					counter++;
 				}
 			}
@@ -177,8 +177,8 @@ public class Player {
 				return false;
 			}
 		}
-		for (int j = 0; j < ItemVariables.IMPORTANT_ITEM_MC.length; j++) {
-			if (item.equals(ItemVariables.IMPORTANT_ITEM_MC[j])) {
+		for (int j = 0; j < ItemVariables.IMPORTANT_ITEM_BH.length; j++) {
+			if (item.equals(ItemVariables.IMPORTANT_ITEM_BH[j])) {
 				return false;
 			}
 		}
@@ -187,8 +187,8 @@ public class Player {
 				return false;
 			}
 		}
-		for (int j = 0; j < ItemVariables.IMPORTANT_ITEM_MH.length; j++) {
-			if (item.equals(ItemVariables.IMPORTANT_ITEM_MH[j])) {
+		for (int j = 0; j < ItemVariables.IMPORTANT_ITEM_MG.length; j++) {
+			if (item.equals(ItemVariables.IMPORTANT_ITEM_MG[j])) {
 				return false;
 			}
 		}

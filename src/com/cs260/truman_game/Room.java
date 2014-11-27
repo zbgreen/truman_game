@@ -6,8 +6,8 @@ import java.util.ArrayList;
  * Room class. This class will contains the name for this room, the description
  * for this room, and the items this room contains
  *
- * @author Yong Zheng
- * @version 11/04/2014
+ * @author Yong Zheng, Zach Green
+ * @version 11/26/2014
  */
 public class Room {
 	/**
@@ -244,16 +244,15 @@ public class Room {
 		if (buildingName.equals("Violette Hall")) {
 			items.add(new Item(ItemVariables.IMPORTANT_ITEM_VH[(int) (Math
 					.random() * ItemVariables.IMPORTANT_ITEM_VH.length)], true));
-		} else if (buildingName.equals("McClain Hall")) {
-			items.add(new Item(ItemVariables.IMPORTANT_ITEM_MC[(int) (Math
-					.random() * ItemVariables.IMPORTANT_ITEM_MC.length)], true));
+		} else if (buildingName.equals("Baldwin Hall")) {
+			items.add(new Item(ItemVariables.IMPORTANT_ITEM_BH[(int) (Math
+					.random() * ItemVariables.IMPORTANT_ITEM_BH.length)], true));
 		} else if (buildingName.equals("Ophelia Parrish")) {
 			items.add(new Item(ItemVariables.IMPORTANT_ITEM_OP[(int) (Math
 					.random() * ItemVariables.IMPORTANT_ITEM_OP.length)], true));
-		} else if (buildingName.equals("Missouri Hall")) {
-			items.add(new Item(ItemVariables.IMPORTANT_ITEM_MH[(int) (Math
-					.random() * ItemVariables.IMPORTANT_ITEM_MH.length)], true));
+		} else if (buildingName.equals("Magruder Hall")) {
+			items.add(new Item(ItemVariables.IMPORTANT_ITEM_MG[(int) (Math
+					.random() * ItemVariables.IMPORTANT_ITEM_MG.length)], true));
 		}
 	}
-
 }

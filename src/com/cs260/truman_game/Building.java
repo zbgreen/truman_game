@@ -6,8 +6,8 @@ import java.util.ArrayList;
  * Building class. This class will contains the name of the building and the
  * rooms that this building contains.
  *
- * @author Yong Zheng
- * @version 11/04/2014
+ * @author Yong Zheng, Zach Green
+ * @version 11/26/2014
  */
 public class Building {
 	private String buildingName;
@@ -34,11 +34,11 @@ public class Building {
 		if (choiceCommandBuilding == 1) {
 			buildingName = "Violette Hall";
 		} else if (choiceCommandBuilding == 2) {
-			buildingName = "McClain Hall";
+			buildingName = "Baldwin Hall";
 		} else if (choiceCommandBuilding == 3) {
 			buildingName = "Ophelia Parrish";
 		} else if (choiceCommandBuilding == 4) {
-			buildingName = "Missouri Hall";
+			buildingName = "Magruder Hall";
 		}
 		this.rooms = rooms;
 	}
@@ -87,33 +87,43 @@ public class Building {
 	 */
 	public void setUpBuilding(ArrayList<Room> rooms) {
 		if (buildingName.equals("Violette Hall")) {
+			System.out.println("This is hall is the home to math and computer science.\n"
+				+ "This building has seen a lot of change, with the latest being mounted machine guns outdoors.\n"
+				+ "You know... to keep out the riff raff.");
 			rooms.get(0).setRoomName(RoomVariable.roomNameVH[0]);
 			rooms.get(1).setRoomName(RoomVariable.roomNameVH[1]);
 			rooms.get(2).setRoomName(RoomVariable.roomNameVH[2]);
 			rooms.get(0).setRoomDescription(RoomVariable.roomDescriptionVH[0]);
 			rooms.get(1).setRoomDescription(RoomVariable.roomDescriptionVH[1]);
 			rooms.get(2).setRoomDescription(RoomVariable.roomDescriptionVH[2]);
-		} else if (buildingName.equals("McClain Hall")) {
-			rooms.get(0).setRoomName(RoomVariable.roomNameMH[0]);
-			rooms.get(1).setRoomName(RoomVariable.roomNameMH[1]);
-			rooms.get(2).setRoomName(RoomVariable.roomNameMH[2]);
-			rooms.get(0).setRoomDescription(RoomVariable.roomDescriptionMH[0]);
-			rooms.get(1).setRoomDescription(RoomVariable.roomDescriptionMH[1]);
-			rooms.get(2).setRoomDescription(RoomVariable.roomDescriptionMH[2]);
+		} else if (buildingName.equals("Baldwin Hall")) {
+			System.out.println("Humanities and philosophy reside throughout.\n"
+					+ "This building has burned down too many times to count.\n"
+					+ "How long can it last? Or more importantly, how long can you last?");
+			rooms.get(0).setRoomName(RoomVariable.roomNameBH[0]);
+			rooms.get(1).setRoomName(RoomVariable.roomNameBH[1]);
+			rooms.get(2).setRoomName(RoomVariable.roomNameBH[2]);
+			rooms.get(0).setRoomDescription(RoomVariable.roomDescriptionBH[0]);
+			rooms.get(1).setRoomDescription(RoomVariable.roomDescriptionBH[1]);
+			rooms.get(2).setRoomDescription(RoomVariable.roomDescriptionBH[2]);
 		} else if (buildingName.equals("Ophelia Parrish")) {
+			System.out.println("Affectionately know as OP to the arts students here.\n"
+					+ "They say you can hear music even when no one is playing...");
 			rooms.get(0).setRoomName(RoomVariable.roomNameOP[0]);
 			rooms.get(1).setRoomName(RoomVariable.roomNameOP[1]);
 			rooms.get(2).setRoomName(RoomVariable.roomNameOP[2]);
 			rooms.get(0).setRoomDescription(RoomVariable.roomDescriptionOP[0]);
 			rooms.get(1).setRoomDescription(RoomVariable.roomDescriptionOP[1]);
 			rooms.get(2).setRoomDescription(RoomVariable.roomDescriptionOP[2]);
-		} else if (buildingName.equals("Missouri Hall")) {
-			rooms.get(0).setRoomName(RoomVariable.roomNameMH[0]);
-			rooms.get(1).setRoomName(RoomVariable.roomNameMH[1]);
-			rooms.get(2).setRoomName(RoomVariable.roomNameMH[2]);
-			rooms.get(0).setRoomDescription(RoomVariable.roomDescriptionMH[0]);
-			rooms.get(1).setRoomDescription(RoomVariable.roomDescriptionMH[1]);
-			rooms.get(2).setRoomDescription(RoomVariable.roomDescriptionMH[2]);
+		} else if (buildingName.equals("Magruder Hall")) {
+			System.out.println("Maybe the most important building on campus given the circumstances.\n"
+					+ "Home of the sciences, hopefully it can churn out solutions to our dire needs.");
+			rooms.get(0).setRoomName(RoomVariable.roomNameMG[0]);
+			rooms.get(1).setRoomName(RoomVariable.roomNameMG[1]);
+			rooms.get(2).setRoomName(RoomVariable.roomNameMG[2]);
+			rooms.get(0).setRoomDescription(RoomVariable.roomDescriptionMG[0]);
+			rooms.get(1).setRoomDescription(RoomVariable.roomDescriptionMG[1]);
+			rooms.get(2).setRoomDescription(RoomVariable.roomDescriptionMG[2]);
 		}
 		rooms.get(0).addItemToRoomGeneral(buildingName);
 		rooms.get(1).addItemToRoomMoreFood(buildingName);

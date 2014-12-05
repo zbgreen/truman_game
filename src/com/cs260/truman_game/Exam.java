@@ -38,9 +38,9 @@ public class Exam
 			"c"},
 			//5.
 			{"What kind of language is Java?\n"
-			+ "A:Interpretted\n"
+			+ "A:Compiled and interpretted\n"
 			+ "B:A cool one\n"
-			+ "C:General Purpose\n",
+			+ "C:Hard\n",
 			"c"},
 			//6.
 			{"What modifier should always be used whenever possible?\n"

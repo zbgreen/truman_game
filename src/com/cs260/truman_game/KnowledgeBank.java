@@ -12,7 +12,7 @@ public class KnowledgeBank {
 	 * The array that contains all of the knowledge that the player will learn from this game
 	 */
 	public static final String[] KNOWLEDGE = {"Know your OOP priniciples!", 
-		"Java is not an interpretted language.",
+		"Java is also an interpretted language.",
 		"Always program by contract",
 		"Programming Patterns are a general approach to solving repeated problems",
 		"Use private whenever possible",
